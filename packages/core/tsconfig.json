@@ -1,0 +1,5 @@
+{
+  "extends": "../../config/typescript.app.json",
+  "include": ["./components", "./constants", "*.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

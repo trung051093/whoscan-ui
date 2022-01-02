@@ -1,0 +1,23 @@
+{
+  "name": "@whoscan/locales",
+  "version": "1.0.13",
+  "description": "",
+  "main": "i18next.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "i18next": "^21.6.4",
+    "i18next-browser-languagedetector": "^6.1.2",
+    "react-i18next": "^11.15.2"
+  },
+  "dependencies": {
+    "i18next": "^21.6.4",
+    "i18next-browser-languagedetector": "^6.1.2",
+    "react-i18next": "^11.15.2"
+  }
+}

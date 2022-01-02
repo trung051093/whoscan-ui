@@ -1,0 +1,21 @@
+.inputFile {
+    display: none;
+}
+
+.btnContainer {
+    position: relative;
+    width: auto;
+}
+
+.btn {
+    min-width: 40px;
+    padding: 8px;
+}
+
+.btnRounded {
+    border-radius: 50%;
+}
+
+.btnLabel {
+    margin-left: 10px;
+}
