@@ -1,0 +1,120 @@
+$default: #020025;
+$dark: #121212;
+$primary: #73e5ff;
+$blue: #257ffc;
+$blue2: #5e64ff;
+$pink: #ff07c9;
+$white: #ffffff;
+$border: #e9e9eb;
+$black: #000000;
+$black2: #121727;
+$gray: #e6e7e9;
+$gray2: #f9f9f9;
+$gray3: #e4e4e4;
+$gray4: #e6e6e6;
+$gray5: #e0e0e0;
+$gray6: #636363;
+$red: #ff5e66;
+$secondary-red: #fc0d1b;
+$input-border: #e4e4ed;
+$checked: linear-gradient(360deg, #34aa44 2.22%, #38b249 100%);
+$checked-border: #2d9c3c;
+$blue-dodger: #5e64ff;
+$lavender: #cd5ce0;
+$yellow: #ffba00;
+$green: #76ba18;
+$violet: #ec8efc;
+$magenta: #cd5ce0;
+$anakiwa: #8feaff;
+$cod-gray: #141414;
+$orange: #ffa41c;
+$text: #121212;
+$loading-background: #cdcdcdb7;
+
+$border-radius: 16px;
+$x-small: 12px;
+$small: 14px;
+$medium1: 16px;
+$medium2: 18px;
+$normal: 20px;
+$normal1: 22px;
+$normal2: 24px;
+$large: 32px;
+$larger: 36px;
+$x-large: 40px;
+$xx-large: 56px;
+$xxl-large: 72px;
+
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+
+$container: 616px;
+
+$xx-small-screen: 350px;
+$x-small-screen: 480px;
+$small-screen: 600px;
+$medium-screen: 900px;
+$large-screen: 1200px;
+$x-large-screen: 1280px;
+$xx-large-screen: 1536px;
+
+$box-shadow-x-small: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+$box-shadow-small: 0 0 10px rgba(0, 0, 0, 0.25);
+
+$box-shadow-medium: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+  rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+
+html {
+  --default-color: #{$default};
+  --dark-color: #{$dark};
+  --primary-color: #{$primary};
+  --blue-color: #{$blue};
+  --blue2-color: #{$blue2};
+  --white-color: #{$white};
+  --border-color: #{$border};
+  --black-color: #{$black};
+  --gray-color: #{$gray};
+  --gray2-color: #{$gray2};
+  --gray3-color: #{$gray3};
+  --gray4-color: #{$gray4};
+  --gray5-color: #{$gray5};
+  --gray6-color: #{$gray6};
+  --comment-background-color: #{$gray5};
+  --red-color: #{$red};
+  --checked-color: #{$checked};
+  --lavender-color: #{$lavender};
+  --yellow-color: #{$yellow};
+  --green-color: #{$green};
+  --violet-color: #{$violet};
+  --magenta-color: #{$magenta};
+  --anakiwa-color: #{$anakiwa};
+  --orange-color: #{$orange};
+  --text-color: #{$text};
+  --box-shadow-x-small: #{$box-shadow-x-small};
+  --box-shadow-small: #{$box-shadow-small};
+  --box-shadow-medium: #{$box-shadow-medium};
+  --border-radius: #{$border-radius};
+  --loading-background-color: #{$loading-background};
+}
+
+@mixin mobile {
+  @media (max-width: #{$x-small-screen}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$medium-screen}) and (max-width: #{$large-screen - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$large-screen}) {
+    @content;
+  }
+}

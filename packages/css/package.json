@@ -1,0 +1,24 @@
+{
+  "name": "@whoscan/css",
+  "version": "1.0.0",
+  "main": "index.scss",
+  "scripts": {
+    "build": "rimraf css && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-sass": "node-sass --output-style expanded src/index.scss ./index.css",
+    "build-autoprefix": "postcss --use autoprefixer --map --output ./index.css ./index.css",
+    "build-cleancss": "cleancss -o ./index.min.css ./index.css"
+  },
+  "files": [
+    "css"
+  ],
+  "author": "dotrung051093",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.1",
+    "clean-css-cli": "^5.5.0",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "rimraf": "^3.0.2"
+  }
+}

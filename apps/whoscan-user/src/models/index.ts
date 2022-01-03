@@ -1,7 +1,5 @@
 export * from './response.model';
-export * from './store-actiontyped.model';
-export * from './store-state.model';
-
+export * from './base.model';
 export * from './base-parameter.model';
 export * from './base-listing.model';
 export * from './pagination.model';

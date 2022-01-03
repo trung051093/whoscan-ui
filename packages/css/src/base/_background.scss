@@ -1,0 +1,34 @@
+// Background Color
+.bg {
+  &-primary {
+    background-color: $primary;
+  }
+
+  &-white {
+    background-color: $white;
+  }
+
+  &-red {
+    background-color: $red !important;
+  }
+
+  &-magenta {
+    background-color: $magenta;
+  }
+
+  &-green {
+    background-color: $green;
+  }
+
+  &-blue {
+    background-color: $blue;
+  }
+
+  &-blue2 {
+    background-color: $blue2;
+  }
+
+  &-orange {
+    background-color: $orange !important;
+  }
+}

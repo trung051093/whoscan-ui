@@ -1,0 +1,374 @@
+// Text Color
+.text {
+  font-weight: $regular;
+  font-size: $small;
+  line-height: 20px;
+  color: $text;
+
+  &-regular12.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: $x-small !important;
+    line-height: 20px;
+  }
+  &-regular14.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: $small !important;
+    line-height: 22px;
+  }
+  &-regular16.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: $medium1 !important;
+    line-height: 24px;
+  }
+  &-regular18.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: $medium2 !important;
+    line-height: 28px;
+  }
+  &-regular20.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: 20px !important;
+    line-height: 28px;
+  }
+  &-regular22.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: 22px !important;
+    line-height: 32px;
+  }
+  &-regular24.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: 24px !important;
+    line-height: 32px;
+  }
+  &-regular28.MuiTypography-root {
+    font-weight: $regular !important;
+    font-size: $normal !important;
+    line-height: 36px;
+  }
+  &-medium12.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: $x-small !important;
+    line-height: 20px;
+  }
+  &-medium14.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: $small !important;
+    line-height: 24px;
+  }
+  &-medium16.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: $medium1 !important;
+    line-height: 24px;
+  }
+  &-medium18.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: $medium2 !important;
+    line-height: 24px;
+  }
+  &-medium20.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: 20px !important;
+    line-height: 28px;
+  }
+  &-medium22.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: 22px !important;
+    line-height: 32px;
+  }
+  &-medium24.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: 24px !important;
+    line-height: 32px;
+  }
+  &-medium28.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: 28px !important;
+    line-height: 36px;
+  }
+  &-medium30.MuiTypography-root {
+    font-weight: $medium !important;
+    font-size: 30px !important;
+    line-height: 36px;
+  }
+  &-semibold12.MuiTypography-root {
+    font-weight: $semi-bold !important;
+    font-size: $x-small !important;
+    line-height: 16px;
+  }
+  &-semibold14.MuiTypography-root {
+    font-weight: $semi-bold !important;
+    font-size: $small !important;
+    line-height: 22px;
+  }
+  &-semibold16.MuiTypography-root {
+    font-weight: $semi-bold !important;
+    font-size: $medium1 !important;
+    line-height: 24px;
+  }
+  &-semibold18.MuiTypography-root {
+    font-weight: $semi-bold !important;
+    font-size: $medium2 !important;
+    line-height: 28px;
+  }
+  &-semibold20.MuiTypography-root {
+    font-weight: $semi-bold !important;
+    font-size: $normal !important;
+    line-height: 32px;
+  }
+  &-semibold24.MuiTypography-root {
+    font-weight: $semi-bold !important;
+    font-size: $normal2 !important;
+    line-height: 32px;
+  }
+  &-bold12.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: 12px !important;
+    line-height: 20px;
+  }
+  &-bold14.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: 14px !important;
+    line-height: 24px;
+  }
+  &-bold16.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $medium1 !important;
+    line-height: 24px;
+  }
+  &-bold18.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $medium2 !important;
+    line-height: 24px;
+  }
+  &-bold20.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: 20px !important;
+    line-height: 28px;
+  }
+  &-bold22.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: 22px !important;
+    line-height: 32px;
+  }
+  &-bold24.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $normal2 !important;
+    line-height: 32px;
+  }
+  &-bold28.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: 28px !important;
+    line-height: 36px;
+  }
+  &-bold30.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: 30px !important;
+    line-height: 36px;
+  }
+  &-bold32.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $large !important;
+    line-height: 40px;
+  }
+  &-bold36.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $larger !important;
+    line-height: 47px;
+  }
+  &-bold40.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $x-large !important;
+    line-height: 40px;
+  }
+  &-bold48.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: 48px !important;
+    line-height: 48px;
+  }
+  &-bold56.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $xx-large !important;
+    line-height: 84px;
+  }
+  &-bold72.MuiTypography-root {
+    font-weight: $bold !important;
+    font-size: $xxl-large !important;
+    line-height: 108px;
+  }
+
+  &-primary {
+    color: $primary !important;
+
+    path {
+      stroke: $primary !important;
+    }
+  }
+
+  &-yellow {
+    color: $yellow !important;
+
+    path {
+      stroke: $yellow !important;
+    }
+  }
+
+  &-blue {
+    color: $blue !important;
+
+    path {
+      stroke: $blue !important;
+    }
+  }
+
+  &-white {
+    color: $white !important;
+
+    path {
+      stroke: $white !important;
+    }
+  }
+
+  &-default {
+    color: $default !important;
+
+    path {
+      stroke: $default !important;
+    }
+  }
+
+  &-red {
+    color: $red !important;
+
+    path {
+      stroke: $red !important;
+    }
+  }
+
+  &-green {
+    color: $green !important;
+
+    path {
+      stroke: $green !important;
+    }
+  }
+
+  &-underline {
+    text-decoration: underline;
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &-grey4 {
+    color: $gray4 !important;
+
+    path {
+      stroke: $gray4 !important;
+    }
+  }
+
+  &-black {
+    color: $black !important;
+
+    path {
+      stroke: $black !important;
+    }
+  }
+
+  &-default80 {
+    opacity: 0.8;
+  }
+}
+
+.font-size {
+  &-xsmall {
+    font-size: $x-small !important;
+  }
+
+  &-small {
+    font-size: $small !important;
+  }
+
+  &-medium {
+    font-size: $medium1 !important;
+  }
+
+  &-medium2 {
+    font-size: $medium2 !important;
+  }
+
+  &-normal {
+    font-size: $normal !important;
+  }
+
+  &-normal2 {
+    font-size: $normal2 !important;
+  }
+
+  &-large {
+    font-size: $large !important;
+  }
+
+  &-xlarge {
+    font-size: $x-large !important;
+  }
+  &-xxlarge {
+    font-size: $xx-large;
+  }
+}
+
+// Font Weight
+.font-weight {
+  &-regular {
+    font-weight: $regular !important;
+  }
+  &-medium {
+    font-weight: $medium !important;
+  }
+  &-semi-bold {
+    font-weight: $semi-bold !important;
+  }
+  &-bold {
+    font-weight: $bold !important;
+  }
+  &-extra-bold {
+    font-weight: $extra-bold !important;
+  }
+}
+
+// Font Opacity
+.font-opacity {
+  &-regular {
+    color: rgba($default, 0.7);
+  }
+  &-medium {
+    color: rgba($default, 0.5);
+  }
+}
+
+.text-align {
+  &-left {
+    text-align: left !important;
+  }
+
+  &-center {
+    text-align: center !important;
+  }
+
+  &-right {
+    text-align: right !important;
+  }
+}
+
+.text-transform {
+  &-capitalize {
+    text-transform: capitalize;
+  }
+  &-lowercase {
+    text-transform: lowercase;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+}

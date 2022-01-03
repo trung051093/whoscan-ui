@@ -1,0 +1,74 @@
+$total: 100;
+
+@for $i from 0 through $total {
+  .h-#{$i*2} {
+    height: #{$i * 2}px !important;
+  }
+  .w-#{$i*2} {
+    width: #{$i * 2}px !important;
+  }
+  .min-h-#{$i*2} {
+    min-height: #{$i * 2}px !important;
+  }
+  .min-w-#{$i*2} {
+    min-width: #{$i * 2}px !important;
+  }
+}
+
+.h {
+  &-full {
+    height: 100% !important;
+  }
+
+  &-screen {
+    height: 100vh !important;
+  }
+
+  &-max-screen {
+    max-height: 100vh !important;
+  }
+}
+
+.w {
+  &-full {
+    width: 100% !important;
+  }
+
+  &-w-full {
+    max-width: 100% !important;
+  }
+
+  &-screen {
+    width: 100vw !important;
+  }
+}
+
+.max-w {
+  &-xxs {
+    max-width: $xx-small-screen !important;
+  }
+
+  &-xs {
+    max-width: $x-small-screen !important;
+  }
+
+  &-sm {
+    max-width: $small-screen !important;
+  }
+
+  &-md {
+    max-width: $medium-screen !important;
+  }
+
+  &-lg {
+    max-width: $large-screen !important;
+  }
+
+  &-xl {
+    max-width: $x-large-screen !important;
+  }
+
+  &-xxl {
+    max-width: $xx-large-screen !important;
+  }
+}

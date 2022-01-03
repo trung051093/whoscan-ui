@@ -1,0 +1,119 @@
+$total: 100;
+
+@for $i from 0 through $total {
+  // Margin
+  .mt-#{$i*2} {
+    margin-top: #{$i * 2}px !important;
+  }
+  .mb-#{$i*2} {
+    margin-bottom: #{$i * 2}px !important;
+  }
+  .mr-#{$i*2} {
+    margin-right: #{$i * 2}px !important;
+  }
+  .ml-#{$i*2} {
+    margin-left: #{$i * 2}px !important;
+  }
+  .my-#{$i*2} {
+    margin-top: #{$i * 2}px !important;
+    margin-bottom: #{$i * 2}px !important;
+  }
+  .mx-#{$i*2} {
+    margin-left: #{$i * 2}px !important;
+    margin-right: #{$i * 2}px !important;
+  }
+  .m-#{$i*2} {
+    margin: #{$i * 2}px !important;
+  }
+
+  // Padding
+  .pt-#{$i*2} {
+    padding-top: #{$i * 2}px !important;
+  }
+  .pb-#{$i*2} {
+    padding-bottom: #{$i * 2}px !important;
+  }
+  .pr-#{$i*2} {
+    padding-right: #{$i * 2}px !important;
+  }
+  .pl-#{$i*2} {
+    padding-left: #{$i * 2}px !important;
+  }
+  .py-#{$i*2} {
+    padding-top: #{$i * 2}px !important;
+    padding-bottom: #{$i * 2}px !important;
+  }
+  .px-#{$i*2} {
+    padding-left: #{$i * 2}px !important;
+    padding-right: #{$i * 2}px !important;
+  }
+  .p-#{$i*2} {
+    padding: #{$i * 2}px !important;
+  }
+
+  // Top
+  .-top-#{$i*2} {
+    top: -#{$i * 2}px !important;
+    bottom: initial !important;
+  }
+
+  // Bottom
+  .-bottom-#{$i*2} {
+    bottom: -#{$i * 2}px !important;
+    top: initial !important;
+  }
+
+  // Right
+  .-right-#{$i*2} {
+    right: -#{$i * 2}px !important;
+    left: initial !important;
+  }
+
+  // Left
+  .-left-#{$i*2} {
+    left: -#{$i * 2}px !important;
+    right: initial !important;
+  }
+
+  // Top
+  .top-#{$i*2} {
+    top: #{$i * 2}px;
+    bottom: initial;
+  }
+
+  // Bottom
+  .bottom-#{$i*2} {
+    bottom: #{$i * 2}px;
+    top: initial;
+  }
+
+  // Right
+  .right-#{$i*2} {
+    right: #{$i * 2}px;
+    left: initial;
+  }
+
+  // Left
+  .left-#{$i*2} {
+    left: #{$i * 2}px;
+    right: initial;
+  }
+
+  // line-height
+  .line-height-#{$i*2} {
+    line-height: #{$i * 2}px !important;
+  }
+
+  // index
+  .index-#{$i} {
+    z-index: #{$i} !important;
+  }
+}
+
+.mx-auto {
+  margin: 0 auto !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}

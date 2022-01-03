@@ -1,0 +1,178 @@
+.d {
+  &-flex {
+    display: flex !important;
+  }
+
+  &-block {
+    display: block !important;
+  }
+
+  &-none {
+    display: none !important;
+  }
+}
+
+.align-items {
+  &-center {
+    align-items: center;
+  }
+
+  &-end {
+    align-items: flex-end;
+  }
+
+  &-start {
+    align-items: flex-start;
+  }
+}
+
+.align-self {
+  &-center {
+    align-self: center;
+  }
+
+  &-end {
+    align-items: flex-end;
+  }
+
+  &-start {
+    align-items: flex-start;
+  }
+}
+
+.justify {
+  &-center {
+    justify-content: center;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+  &-between {
+    justify-content: space-between;
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.flex {
+  &-1 {
+    flex: 1 !important;
+  }
+
+  &-col {
+    flex-direction: column;
+  }
+
+  &-col-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &-row {
+    flex-direction: row;
+  }
+
+  &-row-reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.position {
+  &-relative {
+    position: relative !important;
+  }
+
+  &-fixed {
+    position: fixed !important;
+  }
+
+  &-absolute {
+    position: absolute !important;
+  }
+
+  &-absolute-full {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+  }
+
+  &-absolute-center {
+    position: absolute !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-absolute-center-top {
+    position: absolute !important;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.object {
+  &-center {
+    object-position: center;
+  }
+  &-cover {
+    object-fit: cover;
+  }
+  &-contain {
+    object-fit: contain;
+  }
+  &-fill {
+    object-fit: fill;
+  }
+}
+
+.visibility {
+  &-hidden {
+    visibility: hidden;
+  }
+}
+
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.overflow {
+  &-hidden {
+    overflow: hidden;
+  }
+}
+
+.opacity {
+  &-80 {
+    opacity: 0.8;
+  }
+  &-50 {
+    opacity: 0.5;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+}
