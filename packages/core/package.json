@@ -1,6 +1,6 @@
 {
   "name": "@whoscan/core",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "core component",
   "main": "index.js",
   "author": "dotrung051093",
@@ -48,7 +48,7 @@
     "@mui/icons-material": "^5.2.5",
     "@mui/lab": "^5.0.0-alpha.62",
     "@mui/material": "^5.2.6",
-    "@whoscan/locales": "^1.0.0",
+    "@whoscan/locales": "^1.0.14",
     "add": "^2.0.6",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",

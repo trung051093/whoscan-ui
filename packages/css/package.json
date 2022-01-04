@@ -1,6 +1,6 @@
 {
   "name": "@whoscan/css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.scss",
   "scripts": {
     "build": "rimraf css && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
