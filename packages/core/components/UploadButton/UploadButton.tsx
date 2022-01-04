@@ -106,10 +106,6 @@ const UploadButton = ({
   };
 
   const handleCropCompleted = (file: File) => {
-    console.log(
-      "🚀 ~ file: UploadButton.tsx ~ line 110 ~ handleCropCompleted ~ c",
-      file
-    );
     mutateFile.mutate(file);
   };
 

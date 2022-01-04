@@ -1,7 +1,6 @@
 import CircularProgress from '@mui/material/CircularProgress';
-import React from 'react';
 
-const Loading: React.FC = () => {
+const Loading = () => {
   return (
     <div className="position-absolute-center index-100">
       <CircularProgress />

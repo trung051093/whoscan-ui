@@ -6,23 +6,28 @@ import { Provider } from "react-redux";
 import { SnackbarProvider } from "notistack";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter } from "react-router-dom";
-import { ReactQueryDevtools } from 'react-query/devtools'
-import "./plugins/axios";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { I18nextProvider } from "react-i18next";
+
+// @ts-ignore
+import { i18n } from "@whoscan/locales";
 
 const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools />
+    <I18nextProvider i18n={i18n}>
       <Provider store={store}>
-        <SnackbarProvider maxSnack={3}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </SnackbarProvider>
+        <QueryClientProvider client={queryClient}>
+          <ReactQueryDevtools />
+          <SnackbarProvider maxSnack={3}>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </SnackbarProvider>
+        </QueryClientProvider>
       </Provider>
-    </QueryClientProvider>
+    </I18nextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

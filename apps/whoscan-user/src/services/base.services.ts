@@ -3,7 +3,7 @@ import { BaseListingModel } from '../models';
 
 export abstract class BaseService {
 
-  public static baseUrl: string = process.env.REACT_APP_API_BASE_URL || "";
+  public static baseUrl: string = import.meta.env.VITE_APP_API_BASE_URL as string;
 
   async post<T, Result = any>(
     path: string,

@@ -1,4 +1,4 @@
-import cookies from '../common/constants/cookies';
+import { CookiesName } from '../common/constants/cookies';
 
 export class CookieServices {
   static setCookie(key: string, value: string, expire: number) {
@@ -29,11 +29,11 @@ export class CookieServices {
   }
 
   static getAccessToken() {
-    return this.getCookie(cookies.ACCESS_TOKEN);
+    return this.getCookie(CookiesName.ACCESS_TOKEN);
   }
 
   static deleteTokens() {
-    this.deleteCookie(cookies.ACCESS_TOKEN);
-    this.deleteCookie(cookies.REFRESH_TOKEN);
+    this.deleteCookie(CookiesName.ACCESS_TOKEN);
+    this.deleteCookie(CookiesName.REFRESH_TOKEN);
   }
 }
