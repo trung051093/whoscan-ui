@@ -15,7 +15,7 @@ document.body.appendChild(portal);
 
 interface PortalProps {
   enableDropComponent?: boolean;
-  namespaceClass: string;
+  className?: string;
   single?: boolean;
   provided: DraggableProvided;
   snapshot: DraggableStateSnapshot;
@@ -25,7 +25,7 @@ interface PortalProps {
 const Portal = ({
   provided,
   snapshot,
-  namespaceClass,
+  className = "portal",
   enableDropComponent = false,
   children,
   single,
@@ -35,9 +35,9 @@ const Portal = ({
   const usePortal: boolean = snapshot.isDragging;
 
   const itemWrapperClassname = classNames({
-    [`${namespaceClass}__item`]: true,
-    [`${namespaceClass}__item--dragging`]: snapshot.isDragging,
-    [`${namespaceClass}__single`]: single,
+    [`${className}__item`]: true,
+    [`${className}__item--dragging`]: snapshot.isDragging,
+    [`${className}__single`]: single,
   });
 
   const propsComponentDragable = enableDropComponent

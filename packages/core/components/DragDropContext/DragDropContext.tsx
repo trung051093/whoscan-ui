@@ -17,7 +17,7 @@ export interface DragDropContextProps<T> {
   internalScroll?: boolean;
   droppableId: string;
   itemIdPrefix: string;
-  listClassName?: string;
+  className?: string;
   list: T[];
   mode?: DroppableMode;
   direction?: Direction;
@@ -30,18 +30,18 @@ export interface DragDropContextProps<T> {
   onDropEndCallback: (list: T[]) => void;
 }
 
-const Container: React.FC<any> = ({ listClassName, children }) => (
-  <div className={`${listClassName}__container`}>{children}</div>
+const Container: React.FC<any> = ({ className, children }) => (
+  <div className={`${className}__container`}>{children}</div>
 );
 
-const DropZone: React.FC<any> = ({ dropProvided, listClassName, children }) => (
-  <div className={`${listClassName}__dropzone`} ref={dropProvided.innerRef}>
+const DropZone: React.FC<any> = ({ dropProvided, className, children }) => (
+  <div className={`${className}__dropzone`} ref={dropProvided.innerRef}>
     {children}
   </div>
 );
 
-const ScrollContainer: React.FC<any> = ({ listClassName, children }) => (
-  <div className={`${listClassName}__scroll-container`}>{children}</div>
+const ScrollContainer: React.FC<any> = ({ className, children }) => (
+  <div className={`${className}__scroll-container`}>{children}</div>
 );
 
 const DragDropContextWrapper = <T extends unknown>(
@@ -54,9 +54,9 @@ const DragDropContextWrapper = <T extends unknown>(
     ): ReactElement;
   }
 ) => {
-  const listClassName = classNames({
+  const className = classNames({
     list__wrapper: true,
-    [props.listClassName || ""]: true,
+    [props.className || ""]: true,
   });
 
   const onDragStart = () => {
@@ -92,8 +92,8 @@ const DragDropContextWrapper = <T extends unknown>(
 
   const renderList = (dropProvided: DroppableProvided) => {
     return (
-      <Container listClassName={listClassName}>
-        <DropZone listClassName={listClassName} dropProvided={dropProvided}>
+      <Container className={className}>
+        <DropZone className={className} dropProvided={dropProvided}>
           {props.list.map((item, index) => (
             <Draggable
               key={props.itemIdPrefix + "-" + index}
@@ -124,12 +124,12 @@ const DragDropContextWrapper = <T extends unknown>(
         >
           {(dropProvided) => (
             <div
-              className={listClassName}
+              className={className}
               {...dropProvided.droppableProps}
               ref={dropProvided.innerRef}
             >
               {props.internalScroll ? (
-                <ScrollContainer listClassName={listClassName}>
+                <ScrollContainer className={className}>
                   {renderList(dropProvided)}
                 </ScrollContainer>
               ) : (

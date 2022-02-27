@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import CardContent from "@mui/material/CardContent";
 import { useForm } from "react-hook-form";
 import { FormInputText } from "@whoscan/core/components/Form/FormInputText";
@@ -11,6 +12,7 @@ import * as yup from "yup";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useLogin } from "../../hooks/useAuth";
+import classes from "./AuthPage.module.css";
 
 const LoginPage = () => {
   const { t } = useTranslation();
@@ -33,9 +35,12 @@ const LoginPage = () => {
 
   return (
     <AuthLayout>
-      <Card sx={{ width: 480 }}>
+      <Card sx={{ width: 480 }} className={classes.centerCard}>
         <CardContent>
           <Grid container spacing={4}>
+            <Grid item xs={24}>
+              <Typography component="h1">{t("LOGIN")}</Typography>
+            </Grid>
             <Grid item xs={24}>
               <FormInputText
                 fullWidth

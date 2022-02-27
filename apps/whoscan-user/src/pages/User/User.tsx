@@ -1,6 +1,7 @@
+import MainLayout from "@/layouts/Main";
+
 const UserPage = () => {
-    return <>User Page</>;
-  };
-  
-  export default UserPage;
-  
+  return <MainLayout>User Page</MainLayout>;
+};
+
+export default UserPage;

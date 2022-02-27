@@ -2,21 +2,20 @@ import Header from "@whoscan/core/components/Header";
 import Footer from "@whoscan/core/components/Footer";
 import Layout from "@whoscan/core/components/Layout";
 import PageContent from "@whoscan/core/components/PageContent";
-import classes from './Auth.module.css';
 
-interface AuthLayoutProps {
+interface MainLayoutProps {
   children: any;
 }
 
-const AuthLayout = ({ children }: AuthLayoutProps) => {
+const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <Layout
-      header={<Header titleHeader="Auth" />}
+      header={<Header titleHeader="Main" />}
       footer={<Footer titleFooter="Powered by trungdq" />}
     >
-      <PageContent className={classes.authPageContent}>{children}</PageContent>
+      <PageContent>{children}</PageContent>
     </Layout>
   );
 };
 
-export default AuthLayout;
+export default MainLayout;
