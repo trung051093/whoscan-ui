@@ -1,5 +1,4 @@
 import Axios, { AxiosRequestConfig } from 'axios';
-import { BaseListingModel } from '../models';
 
 export abstract class BaseService {
 
@@ -63,10 +62,6 @@ export abstract class BaseService {
       params: parsedParams,
       ...config,
     });
-
-    if (result && result.headers && result.headers['x-pagination-index']) {
-      return new BaseListingModel(result.headers, result.data);
-    }
 
     return result && result.data;
   }

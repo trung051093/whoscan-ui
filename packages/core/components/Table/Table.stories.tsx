@@ -1,4 +1,4 @@
-import CustomTable from "./Table";
+import { CustomTable } from "./Table";
 import { CustomTableProps, TableColumn } from "./Table.model";
 import { Story } from "@storybook/react";
 
@@ -19,7 +19,7 @@ const Template: Story<CustomTableProps> = (args: CustomTableProps) => (
   <CustomTable {...args} />
 );
 
-const columns = [
+let columns = [
   { id: "name", label: "Name", minWidth: 170 },
   { id: "code", label: "ISO\u00a0Code", minWidth: 100 },
   {
@@ -75,4 +75,7 @@ Normal.args = {
   rows: rows,
   showSelection: true,
   showPagingnation: true,
+  onReorderColumn: (newColumns) => {
+    columns = newColumns;
+  },
 };

@@ -1,2 +1,3 @@
 export * from './Table.model'
-export * from './Table'
+export { CustomTable } from './Table'
+export { CustomTableHead } from './TableHead'

@@ -1,10 +1,10 @@
 const apiPath = {
   // USER
-  GET_USER: '/v1/user/{id}',
-  CREATE_USER: '/v1/user',
-  LIST_USER: '/v1/users',
-  UPDATE_USER: '/v1/user/{id}',
-  DELETE_USER: '/v1/user/{id}',
+  GET_USER: '/user/{id}',
+  CREATE_USER: '/user',
+  LIST_USER: '/users',
+  UPDATE_USER: '/user/{id}',
+  DELETE_USER: '/user/{id}',
 };
 
 export default apiPath;

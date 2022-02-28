@@ -1,19 +1,10 @@
 import Axios, { AxiosResponse, AxiosError } from 'axios';
 import { CookieServices } from '../services';
-import { CookiesName, DEFAULT_VALUES } from '../common';
+import { CookiesName } from '../common';
 
 const bootstrap = async () => {
   console.log("import.meta.env:", import.meta.env);
   Axios.defaults.baseURL = import.meta.env.VITE_APP_API_BASE_URL as string;
-  Axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-  Axios.defaults.headers.common['Access-Control-Allow-Methods'] =
-    'DELETE, POST, GET, OPTIONS';
-  Axios.defaults.headers.common['Access-Control-Allow-Headers'] =
-    'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With';
-
-  Axios.defaults.headers.common['Accept-Language'] =
-    localStorage.getItem(DEFAULT_VALUES.LANGUAGE_KEY) ||
-    DEFAULT_VALUES.LANGUAGE_CODE;
 
   Axios.interceptors.request.use(
     (config: any) => {
@@ -29,12 +20,6 @@ const bootstrap = async () => {
           'X-Refresh-Token': `${CookieServices.getCookie(CookiesName.REFRESH_TOKEN)}`,
         };
       }
-
-      config.headers.common = {
-        ...config.headers.common,
-        'X-Timezone': Intl.DateTimeFormat().resolvedOptions().timeZone,
-      };
-
       return config;
     },
     (error) => {

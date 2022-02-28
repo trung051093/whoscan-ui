@@ -9,7 +9,7 @@ export class ArrayServices {
     }
     static removeWithIndex<T>(array: Array<T>, index: number) {
         const tempArr = [...array];
-        return tempArr.filter((item: T, indexItem: number) => indexItem !== index);
+        return tempArr.filter((_: T, indexItem: number) => indexItem !== index);
     }
     static updateWithId<T extends { id: string }>(array: Array<T>, id: string, obj: T) {
         const tempArr = [...array];

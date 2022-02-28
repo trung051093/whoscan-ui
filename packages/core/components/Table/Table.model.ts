@@ -14,6 +14,7 @@ export interface TableColumn {
 export interface CustomTableProps extends TableProps {
     columns: TableColumn[];
     rows: any;
+    totalRows?: number;
     pageDefault?: number;
     rowsPerPageDefault?: number;
     rowsPerPageOptions?: number[];
@@ -23,8 +24,10 @@ export interface CustomTableProps extends TableProps {
     showPagingnation?: boolean;
     primaryKey?: string;
     isHeadSortDnd?: boolean;
-    onReorderColumn: (columns: TableColumn[]) => void;
+    onReorderColumn?: (columns: TableColumn[]) => void;
     onChangeSelect?: (selected: string[]) => void;
+    onChangePage?: (page: number) => void;
+    onChangeRowsPerPage?: (rowPerPage: number) => void;
     fetchData?: (page?: number, limit?: number) => void;
 }
 

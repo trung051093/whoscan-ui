@@ -1,9 +1,10 @@
 import { API_PATH } from "../common";
 import { Response, ResponsePageination, User, CreateUserDto, UpdateUserDto } from "../models";
 import { BaseService } from "./base.services";
+import qs from "query-string"
 
 interface IUserServices {
-    searchUser: () => Promise<ResponsePageination<User[]>>;
+    searchUser: (page: number, limit: number) => Promise<ResponsePageination<User[]>>;
     getUser: (id: number) => Promise<Response<User>>;
     updateUser: (id: number, payload: UpdateUserDto) => Promise<Response<boolean>>;
     createUser: (id: number, payload: CreateUserDto) => Promise<Response<boolean>>;
@@ -17,8 +18,16 @@ export class UserServices extends BaseService implements IUserServices {
         super();
     }
 
-    searchUser() {
-        return super.get(API_PATH.LIST_USER);
+    searchUser(page: number, limit: number) {
+        return super.get(
+            qs.stringifyUrl({
+                url: API_PATH.LIST_USER,
+                query: {
+                    Page: page,
+                    Limit: limit
+                }
+            })
+        );
     }
 
     getUser(id: number) {

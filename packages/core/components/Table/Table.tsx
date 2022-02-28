@@ -6,17 +6,18 @@ import TablePagination from "@mui/material/TablePagination";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Checkbox from "@mui/material/Checkbox";
-import CustomTableHead from "./TableHead";
+import { CustomTableHead } from "./TableHead";
 import { CustomTableProps } from "./Table.model";
 import noop from "lodash/noop";
 
-export default function CustomTable({
+export function CustomTable({
   stickyHeader = false,
   containerProps = {},
   columns = [],
   rows = [],
+  totalRows = 0,
   rowsPerPageDefault = 10,
-  rowsPerPageOptions = [10, 25, 100],
+  rowsPerPageOptions = [10, 25, 100, 200, 500, 1000],
   pageDefault = 0,
   showSelection = false,
   showPagingnation = false,
@@ -24,8 +25,11 @@ export default function CustomTable({
   fetchData = noop,
   onChangeSelect = noop,
   onReorderColumn = noop,
+  onChangePage = noop,
+  onChangeRowsPerPage = noop,
   ...props
 }: CustomTableProps) {
+  console.log({ columns, rows });
   const [rowSelected, setRowSelected] = React.useState<string[]>([]);
   const [page, setPage] = React.useState(pageDefault);
   const [rowsPerPage, setRowsPerPage] = React.useState(rowsPerPageDefault);
@@ -38,20 +42,24 @@ export default function CustomTable({
     onChangeSelect(rowSelected);
   }, [rowSelected]);
 
-  const onChangePage = (
+  const hanleChangePage = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
     newPage: number
   ) => {
     event?.preventDefault();
     setPage(newPage);
+    onChangePage(newPage);
   };
 
-  const onChangeRowsPerPage = (
+  const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     event?.preventDefault();
-    setRowsPerPage(+event.target.value);
+    const rowPerPage = +event.target.value;
+    setRowsPerPage(rowPerPage);
     setPage(0);
+    onChangeRowsPerPage(rowPerPage);
+    onChangePage(0);
   };
 
   const onSelect = (row: any, checked: boolean) => {
@@ -85,41 +93,34 @@ export default function CustomTable({
             onReorderColumn={onReorderColumn}
           />
           <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row: any, index: number) => {
-                const isItemSelected = rowSelected.includes(row[primaryKey]);
-                const labelId = `enhanced-table-checkbox-${index}`;
-                return (
-                  <TableRow
-                    hover
-                    role="checkbox"
-                    tabIndex={-1}
-                    key={row[primaryKey]}
-                  >
-                    {showSelection && (
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          color="primary"
-                          checked={isItemSelected}
-                          inputProps={{
-                            "aria-labelledby": labelId,
-                          }}
-                          onChange={(_, checked) => onSelect(row, checked)}
-                        />
+            {rows.map((row: any, index: number) => {
+              const isItemSelected = rowSelected.includes(row[primaryKey]);
+              const labelId = `enhanced-table-checkbox-${index}`;
+              return (
+                <TableRow hover role="checkbox" tabIndex={-1} key={index}>
+                  {showSelection && (
+                    <TableCell padding="checkbox">
+                      <Checkbox
+                        color="primary"
+                        checked={isItemSelected}
+                        inputProps={{
+                          "aria-labelledby": labelId,
+                        }}
+                        onChange={(_, checked) => onSelect(row, checked)}
+                      />
+                    </TableCell>
+                  )}
+                  {columns.map((column) => {
+                    const value = row[column.id];
+                    return (
+                      <TableCell key={column.id} align={column.align}>
+                        {column.render ? column.render(value) : value}
                       </TableCell>
-                    )}
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.render ? column.render(value) : value}
-                        </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
+                    );
+                  })}
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>
@@ -127,11 +128,11 @@ export default function CustomTable({
         <TablePagination
           rowsPerPageOptions={rowsPerPageOptions}
           component="div"
-          count={rows.length}
+          count={totalRows}
           rowsPerPage={rowsPerPage}
           page={page}
-          onPageChange={onChangePage}
-          onRowsPerPageChange={onChangeRowsPerPage}
+          onPageChange={hanleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
         />
       )}
     </React.Fragment>
