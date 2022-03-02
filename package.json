@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "dev": "yarn --cwd ./apps/whoscan-user/ dev",
-    "dev:table-demo": "yarn --cwd ./apps/table-demo/ dev",
+    "dev:demo": "yarn --cwd ./apps/demo/ dev",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
