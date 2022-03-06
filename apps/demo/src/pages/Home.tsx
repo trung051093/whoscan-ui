@@ -1,6 +1,6 @@
 import { useSearchUsers } from "@/hooks/useSearchUsers";
 import MainLayout from "@/layouts/Main";
-import { CustomTable, TableColumn } from "@whoscan/core/components/Table";
+import { Table, TableColumn } from "@whoscan/core/components/Table";
 import React from "react";
 
 const HomePage = () => {
@@ -31,31 +31,22 @@ const HomePage = () => {
       minWidth: 100,
     },
   ]);
-  const {
-    page,
-    setPage,
-    limit,
-    setLimit,
-    isLoading,
-    isError,
-    error,
-    data,
-    isFetching,
-    isPreviousData,
-  } = useSearchUsers();
+  const { limit, setPage, setLimit, data } = useSearchUsers();
   console.log("🚀 ~ file: Home.tsx ~ line 46 ~ HomePage ~ data", data);
 
   const onReorderColumn = (columns: any) => setColumns(columns);
 
   return (
     <MainLayout>
-      <CustomTable
-        onChangePage={(page) => setPage(page + 1)}
+      <Table
+        onChangePage={(page) => setPage(page)}
         onChangeRowsPerPage={(rowPerPage) => setLimit(rowPerPage)}
         onReorderColumn={onReorderColumn}
         columns={columns}
         rows={data?.data}
-        totalRows={data?.pagination?.Total}
+        rowsPerPageDefault={limit}
+        totalRows={data?.pagination?.total}
+        showSelection
         showPagingnation
       />
     </MainLayout>

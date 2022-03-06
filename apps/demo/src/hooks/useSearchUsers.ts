@@ -8,7 +8,7 @@ const userServices = new UserServices()
 
 export const useSearchUsers = () => {
     const [page, setPage] = React.useState(1)
-    const [limit, setLimit] = React.useState(10)
+    const [limit, setLimit] = React.useState(25)
 
     return {
         page,

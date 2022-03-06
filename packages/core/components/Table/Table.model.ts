@@ -1,8 +1,3 @@
-import { TableContainerProps } from "@mui/material/TableContainer";
-import { TableProps } from "@mui/material/Table";
-import { TableHeadProps } from "@mui/material/TableHead";
-import { Direction, DroppableMode } from "react-beautiful-dnd";
-
 export interface TableColumn {
     id: string;
     label: string;
@@ -11,39 +6,4 @@ export interface TableColumn {
     render?: (item: any) => JSX.Element | string | number
 }
 
-export interface CustomTableProps extends TableProps {
-    columns: TableColumn[];
-    rows: any;
-    totalRows?: number;
-    pageDefault?: number;
-    rowsPerPageDefault?: number;
-    rowsPerPageOptions?: number[];
-    containerProps?: TableContainerProps;
-    stickyHeader?: boolean;
-    showSelection?: boolean;
-    showPagingnation?: boolean;
-    primaryKey?: string;
-    isHeadSortDnd?: boolean;
-    onReorderColumn?: (columns: TableColumn[]) => void;
-    onChangeSelect?: (selected: string[]) => void;
-    onChangePage?: (page: number) => void;
-    onChangeRowsPerPage?: (rowPerPage: number) => void;
-    fetchData?: (page?: number, limit?: number) => void;
-}
-
-export interface CustomTableHeadProps extends TableHeadProps {
-    columns: TableColumn[];
-    numSelected?: number;
-    rowCount?: number;
-    showSelection?: boolean;
-    primaryKey?: string;
-    onSelectAll?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    // for drag and drop
-    isDnD?: boolean;
-    internalScroll?: boolean;
-    droppableId?: string;
-    direction?: Direction;
-    mode?: DroppableMode;
-    itemIdPrefix?: string
-    onReorderColumn: (columns: TableColumn[]) => void;
-}
+export type TypeKeyValue = string | number

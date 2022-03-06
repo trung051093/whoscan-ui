@@ -1,8 +1,8 @@
 export interface Pagination {
-    Page: number;
-    Limit: number;
-    Total: number;
-    Offset: number;
+    page: number;
+    limit: number;
+    total: number;
+    offset: number;
 }
 
 export interface Response<T> {

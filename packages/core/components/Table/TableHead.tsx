@@ -1,8 +1,8 @@
-import TableHead from "@mui/material/TableHead";
+import TableHead, { TableHeadProps } from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
+import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
-import { CustomTableHeadProps } from "./Table.model";
 import noop from "lodash/noop";
 import {
   DragDropContext,
@@ -11,8 +11,28 @@ import {
   DropResult,
   DroppableProvided,
   DroppableStateSnapshot,
+  Direction,
+  DroppableMode,
 } from "react-beautiful-dnd";
 import { ArrayServices } from "../../utils/array";
+import { TableColumn } from ".";
+
+export interface CustomTableHeadProps extends TableHeadProps {
+  columns: TableColumn[];
+  numSelected?: number;
+  rowCount?: number;
+  showSelection?: boolean;
+  primaryKey?: string;
+  onSelectAll?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // for drag and drop
+  isDnD?: boolean;
+  internalScroll?: boolean;
+  droppableId?: string;
+  direction?: Direction;
+  mode?: DroppableMode;
+  itemIdPrefix?: string;
+  onReorderColumn: (columns: TableColumn[]) => void;
+}
 
 export function CustomTableHead({
   columns = [],
@@ -48,13 +68,9 @@ export function CustomTableHead({
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <TableHead>
-        <TableRow
-          component={Droppable}
-          droppableId="droppableTable"
-          direction="horizontal"
-        >
+        <Droppable droppableId="droppableTable" direction="horizontal">
           {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
-            <tr
+            <TableRow
               key={snapshot.toString()}
               ref={provided.innerRef}
               {...provided.droppableProps}
@@ -85,21 +101,22 @@ export function CustomTableHead({
                     index={index}
                   >
                     {(provided) => (
-                      <div
+                      <Typography
+                        component="span"
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                       >
                         {column.label}
-                      </div>
+                      </Typography>
                     )}
                   </Draggable>
                 </TableCell>
               ))}
               {provided.placeholder}
-            </tr>
+            </TableRow>
           )}
-        </TableRow>
+        </Droppable>
       </TableHead>
     </DragDropContext>
   );

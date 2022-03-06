@@ -23,8 +23,8 @@ export class UserServices extends BaseService implements IUserServices {
             qs.stringifyUrl({
                 url: API_PATH.LIST_USER,
                 query: {
-                    Page: page,
-                    Limit: limit
+                    page: page,
+                    limit: limit
                 }
             })
         );

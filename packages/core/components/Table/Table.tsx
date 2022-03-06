@@ -1,27 +1,57 @@
 import React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TablePagination from "@mui/material/TablePagination";
-import TableContainer from "@mui/material/TableContainer";
-import TableRow from "@mui/material/TableRow";
-import Checkbox from "@mui/material/Checkbox";
-import { CustomTableHead } from "./TableHead";
-import { CustomTableProps } from "./Table.model";
+import Table, { TableProps } from "@mui/material/Table";
+import Stack from "@mui/material/Stack";
+import TableContainer, {
+  TableContainerProps,
+} from "@mui/material/TableContainer";
+import { TableColumn, TableHead, TablePagination, TableBody } from ".";
+
 import noop from "lodash/noop";
+import {
+  DEFAULT_PRIMARY_KEY,
+  DEFAULT_STICKY_HEADER,
+  DEFAULT_SHOW_SELECTION,
+  DEFAULT_SHOW_PAGINATION,
+  DEFAULT_PAGE,
+  DEFAULT_TOTAL_ROWS,
+  DEFAULT_ROWS_PER_PAGE,
+  DEFAULT_ROWS_PER_PAGE_OPTIONS,
+} from "./Table.constant";
+
+import { TypeKeyValue } from "./Table.model";
+
+export interface CustomTableProps extends TableProps {
+  columns: TableColumn[];
+  rows: any;
+  totalRows?: number;
+  pageDefault?: number;
+  rowsPerPageDefault?: number;
+  rowsPerPageOptions?: number[];
+  containerProps?: TableContainerProps;
+  stickyHeader?: boolean;
+  showSelection?: boolean;
+  showPagingnation?: boolean;
+  primaryKey?: string;
+  isHeadSortDnd?: boolean;
+  onReorderColumn?: (columns: TableColumn[]) => void;
+  onChangeSelect?: (selected: TypeKeyValue[]) => void;
+  onChangePage?: (page: number) => void;
+  onChangeRowsPerPage?: (rowPerPage: number) => void;
+  fetchData?: (page?: number, limit?: number) => void;
+}
 
 export function CustomTable({
-  stickyHeader = false,
+  stickyHeader = DEFAULT_STICKY_HEADER,
   containerProps = {},
   columns = [],
   rows = [],
-  totalRows = 0,
-  rowsPerPageDefault = 10,
-  rowsPerPageOptions = [10, 25, 100, 200, 500, 1000],
-  pageDefault = 0,
-  showSelection = false,
-  showPagingnation = false,
-  primaryKey = "id",
+  totalRows = DEFAULT_TOTAL_ROWS,
+  rowsPerPageDefault = DEFAULT_ROWS_PER_PAGE,
+  rowsPerPageOptions = DEFAULT_ROWS_PER_PAGE_OPTIONS,
+  pageDefault = DEFAULT_PAGE,
+  showSelection = DEFAULT_SHOW_SELECTION,
+  showPagingnation = DEFAULT_SHOW_PAGINATION,
+  primaryKey = DEFAULT_PRIMARY_KEY,
   fetchData = noop,
   onChangeSelect = noop,
   onReorderColumn = noop,
@@ -29,8 +59,10 @@ export function CustomTable({
   onChangeRowsPerPage = noop,
   ...props
 }: CustomTableProps) {
-  console.log({ columns, rows });
-  const [rowSelected, setRowSelected] = React.useState<string[]>([]);
+  if (rows.length > 0 && typeof rows[0][primaryKey]) {
+    console.warn(`Type of value "${primaryKey}" must be string or number`);
+  }
+  const [rowSelected, setRowSelected] = React.useState<Array<TypeKeyValue>>([]);
   const [page, setPage] = React.useState(pageDefault);
   const [rowsPerPage, setRowsPerPage] = React.useState(rowsPerPageDefault);
 
@@ -42,30 +74,22 @@ export function CustomTable({
     onChangeSelect(rowSelected);
   }, [rowSelected]);
 
-  const hanleChangePage = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
-    newPage: number
-  ) => {
-    event?.preventDefault();
+  const hanleChangePage = (newPage: number) => {
     setPage(newPage);
     onChangePage(newPage);
   };
 
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    event?.preventDefault();
-    const rowPerPage = +event.target.value;
-    setRowsPerPage(rowPerPage);
-    setPage(0);
-    onChangeRowsPerPage(rowPerPage);
-    onChangePage(0);
+  const handleChangeRowsPerPage = (newRowsPerPage: number) => {
+    setRowsPerPage(newRowsPerPage);
+    onChangeRowsPerPage(newRowsPerPage);
+    setPage(pageDefault);
+    onChangePage(pageDefault);
   };
 
-  const onSelect = (row: any, checked: boolean) => {
-    const rowId = row[primaryKey] as string;
+  const onSelect = (index: number, checked: boolean) => {
+    const rowId = rows[index][primaryKey] as TypeKeyValue;
     if (checked) {
-      setRowSelected(rowSelected.concat([rowId]));
+      setRowSelected([...rowSelected, rowId]);
     } else {
       setRowSelected(rowSelected.filter((id) => id !== rowId));
     }
@@ -82,59 +106,37 @@ export function CustomTable({
 
   return (
     <React.Fragment>
-      <TableContainer {...containerProps}>
-        <Table stickyHeader={stickyHeader} {...props}>
-          <CustomTableHead
-            columns={columns}
-            numSelected={rowSelected.length}
-            rowCount={rows.length}
-            showSelection={showSelection}
-            onSelectAll={onSelectAll}
-            onReorderColumn={onReorderColumn}
+      <Stack direction="column" spacing={2}>
+        <TableContainer {...containerProps}>
+          <Table stickyHeader={stickyHeader} {...props}>
+            <TableHead
+              columns={columns}
+              numSelected={rowSelected.length}
+              rowCount={rows.length}
+              showSelection={showSelection}
+              onSelectAll={onSelectAll}
+              onReorderColumn={onReorderColumn}
+            />
+            <TableBody
+              columns={columns}
+              rows={rows}
+              rowSelected={rowSelected}
+              primaryKey={primaryKey}
+              showSelection={showSelection}
+              onSelectRow={onSelect}
+            />
+          </Table>
+        </TableContainer>
+        {showPagingnation && (
+          <TablePagination
+            total={totalRows}
+            page={page}
+            rowsPerPage={rowsPerPage}
+            onChangePage={hanleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
           />
-          <TableBody>
-            {rows.map((row: any, index: number) => {
-              const isItemSelected = rowSelected.includes(row[primaryKey]);
-              const labelId = `enhanced-table-checkbox-${index}`;
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={index}>
-                  {showSelection && (
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        color="primary"
-                        checked={isItemSelected}
-                        inputProps={{
-                          "aria-labelledby": labelId,
-                        }}
-                        onChange={(_, checked) => onSelect(row, checked)}
-                      />
-                    </TableCell>
-                  )}
-                  {columns.map((column) => {
-                    const value = row[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.render ? column.render(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      {showPagingnation && (
-        <TablePagination
-          rowsPerPageOptions={rowsPerPageOptions}
-          component="div"
-          count={totalRows}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={hanleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      )}
+        )}
+      </Stack>
     </React.Fragment>
   );
 }

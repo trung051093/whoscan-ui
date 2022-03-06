@@ -1,11 +1,11 @@
-import { CustomTable } from "./Table";
-import { CustomTableProps, TableColumn } from "./Table.model";
+import { Table, TableProps } from ".";
+import { TableColumn } from "./Table.model";
 import { Story } from "@storybook/react";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Whoscan/CustomTable",
-  component: CustomTable,
+  title: "Whoscan/Table",
+  component: Table,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     icon: { control: "text" },
@@ -15,9 +15,7 @@ export default {
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: Story<CustomTableProps> = (args: CustomTableProps) => (
-  <CustomTable {...args} />
-);
+const Template: Story<TableProps> = (args: TableProps) => <Table {...args} />;
 
 let columns = [
   { id: "name", label: "Name", minWidth: 170 },
