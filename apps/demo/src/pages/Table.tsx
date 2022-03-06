@@ -32,7 +32,6 @@ const HomePage = () => {
     },
   ]);
   const { limit, setPage, setLimit, data } = useSearchUsers();
-  console.log("🚀 ~ file: Home.tsx ~ line 46 ~ HomePage ~ data", data);
 
   const onReorderColumn = (columns: any) => setColumns(columns);
 

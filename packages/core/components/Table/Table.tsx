@@ -1,4 +1,5 @@
 import React from "react";
+import "react-virtualized/styles.css";
 import Table, { TableProps } from "@mui/material/Table";
 import Stack from "@mui/material/Stack";
 import TableContainer, {
@@ -23,6 +24,8 @@ import { TypeKeyValue } from "./Table.model";
 export interface CustomTableProps extends TableProps {
   columns: TableColumn[];
   rows: any;
+  width?: number;
+  height?: number;
   totalRows?: number;
   pageDefault?: number;
   rowsPerPageDefault?: number;
@@ -86,8 +89,8 @@ export function CustomTable({
     onChangePage(pageDefault);
   };
 
-  const onSelect = (index: number, checked: boolean) => {
-    const rowId = rows[index][primaryKey] as TypeKeyValue;
+  const onSelect = (row: any, checked: boolean) => {
+    const rowId = row[primaryKey] as TypeKeyValue;
     if (checked) {
       setRowSelected([...rowSelected, rowId]);
     } else {
@@ -107,8 +110,8 @@ export function CustomTable({
   return (
     <React.Fragment>
       <Stack direction="column" spacing={2}>
-        <TableContainer {...containerProps}>
-          <Table stickyHeader={stickyHeader} {...props}>
+        <Table {...props}>
+          <TableContainer {...containerProps}>
             <TableHead
               columns={columns}
               numSelected={rowSelected.length}
@@ -125,8 +128,8 @@ export function CustomTable({
               showSelection={showSelection}
               onSelectRow={onSelect}
             />
-          </Table>
-        </TableContainer>
+          </TableContainer>
+        </Table>
         {showPagingnation && (
           <TablePagination
             total={totalRows}

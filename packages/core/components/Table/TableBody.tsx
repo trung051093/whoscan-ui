@@ -1,12 +1,10 @@
 import TableBody, { TableBodyProps } from "@mui/material/TableBody";
-import { TableColumn } from ".";
+import { TableColumn, TypeKeyValue } from ".";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import Checkbox from "@mui/material/Checkbox";
-import noop from "lodash/noop";
-
-import { TypeKeyValue } from "./Table.model";
 import { DEFAULT_PRIMARY_KEY, DEFAULT_SHOW_SELECTION } from "./Table.constant";
+import noop from "lodash/noop";
 
 export interface CustomTableBodyProps extends TableBodyProps {
   rows: any;
@@ -37,7 +35,7 @@ export function CustomTableBody({
                 inputProps={{
                   "aria-labelledby": `enhanced-table-checkbox-${index}`,
                 }}
-                onChange={(_, checked) => onSelectRow(index, checked)}
+                onChange={(_, checked) => onSelectRow(row, checked)}
               />
             </TableCell>
           )}

@@ -7,14 +7,14 @@ import { ResponsePageination, User } from '@/models'
 const userServices = new UserServices()
 
 export const useSearchUsers = () => {
-    const [page, setPage] = React.useState(1)
-    const [limit, setLimit] = React.useState(25)
+    const [page, setPage] = React.useState(0)
+    const [limit, setLimit] = React.useState(1000)
 
     return {
         page,
         setPage,
         limit,
         setLimit,
-        ...useQuery<ResponsePageination<User[]>>([QUERY_KEYS.Users, page, limit], () => userServices.searchUser(page, limit))
+        ...useQuery<ResponsePageination<User[]>>([QUERY_KEYS.Users, page, limit], () => userServices.searchUser(page + 1, limit))
     }
 }

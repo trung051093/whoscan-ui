@@ -6,13 +6,16 @@ import "./App.css";
 import uris from "./common/constants/uris.common";
 import { Suspense } from "react";
 import { PageLoading } from "./components/Loading";
-import HomePage from "./pages/Home";
+import TablePage from "./pages/Table";
+import DataGridPage from "./pages/DataGrid";
 
 function App() {
   return (
     <Suspense fallback={<PageLoading />}>
       <Routes>
-        <Route path={uris.Home.DEFAULT} element={<HomePage />} />
+        <Route path={uris.Home.DEFAULT} element={<DataGridPage />} />
+        <Route path={uris.Demo.TABLE} element={<TablePage />} />
+        <Route path={uris.Demo.DATAGRID} element={<DataGridPage />} />
       </Routes>
     </Suspense>
   );

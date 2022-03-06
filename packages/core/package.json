@@ -48,6 +48,9 @@
     "@mui/icons-material": "^5.2.5",
     "@mui/lab": "^5.0.0-alpha.62",
     "@mui/material": "^5.2.6",
+    "@mui/x-data-grid": "^5.6.0",
+    "@mui/x-data-grid-generator": "^5.6.0",
+    "@types/react-virtualized": "^9.21.20",
     "@whoscan/locales": "^1.0.14",
     "add": "^2.0.6",
     "axios": "^0.24.0",
@@ -60,7 +63,11 @@
     "react-i18next": "^11.15.2",
     "react-query": "^3.34.7",
     "react-use": "^17.3.2",
+    "react-virtualized": "^9.22.3",
     "yarn": "^1.22.17"
+  },
+  "resolutions": {
+    "react-virtualized": "git+https://git@github.com/remorses/react-virtualized-fixed-import.git#9.22.3"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
