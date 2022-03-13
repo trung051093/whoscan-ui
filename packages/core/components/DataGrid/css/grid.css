@@ -1,0 +1,7 @@
+.grid-header {
+    display: flex;
+}
+
+.grid-cell {
+    min-width: 100px
+}

@@ -19,7 +19,6 @@ import Icon from "../Icons";
 
 import { DraggableProvidedDragHandleProps } from "react-beautiful-dnd";
 import { useTranslation } from "react-i18next";
-import { useClickAway } from "react-use";
 
 export interface SocialCardProps {
   className?: string;
