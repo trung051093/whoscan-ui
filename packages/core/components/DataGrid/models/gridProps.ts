@@ -6,6 +6,7 @@ export interface DataGridProps {
     localeText: GridLocaleText
     components: Partial<GridSlotsComponent>
     componentsProps: Partial<GridSlotsComponentProps>
+    hideFooter?: boolean
 }
 
 export interface GridProcessedProps extends Partial<DataGridProps> {

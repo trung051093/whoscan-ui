@@ -8,5 +8,5 @@ export interface GridColumn {
     width?: number
     align?: GridColumnAlign
     order?: number
-    render?: () => JSX.Element
+    render?: (item: Record<string, any>) => JSX.Element
 }

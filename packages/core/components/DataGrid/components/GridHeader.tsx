@@ -1,4 +1,5 @@
 import React from "react";
+import { GridClassName } from "../constants";
 import { useGridComponentProps, useGridRootProps } from "../hooks";
 
 export const GridHeaderComponent = React.forwardRef(() => {
@@ -8,10 +9,10 @@ export const GridHeaderComponent = React.forwardRef(() => {
     <div {...componentProps}>
       {rootProps.columns?.map((column, index) => (
         <rootProps.components.Cell
-          className="grid-header__cell"
+          className={GridClassName.HeaderCell}
           key={`header_cell_${index}`}
         >
-          {column.render ? column.render() : column.label}
+          {column.label}
         </rootProps.components.Cell>
       ))}
     </div>

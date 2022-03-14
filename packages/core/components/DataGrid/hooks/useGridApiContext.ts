@@ -1,7 +1,11 @@
 import React from "react"
 import { GridApiContext } from "../contexts"
+import { GridApi } from "../models"
 
 export const useGridApiContext = () => {
     const apiRef = React.useContext(GridApiContext)
-    return apiRef
+    if (!apiRef?.current) {
+        console.warn("apiRef not found")
+    }
+    return apiRef as React.MutableRefObject<GridApi>
 }

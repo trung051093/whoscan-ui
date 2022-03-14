@@ -1,6 +1,9 @@
-export const DEFAULT_GRID_CLASS_NAME: Record<string, string> = {
-    Header: 'grid-header',
-    Footer: 'grid-footer',
-    Row: 'grid-row',
-    Cell: 'grid-cell',
+export enum GridClassName {
+    Header = 'grid-header',
+    HeaderCell = 'grid-header__cell',
+    Footer = 'grid-footer',
+    Row = 'grid-row',
+    Body = 'grid-Body',
+    Cell = 'grid-cell',
+    Root = 'grid-root'
 }
