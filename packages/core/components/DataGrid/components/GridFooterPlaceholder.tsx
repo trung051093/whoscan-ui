@@ -1,4 +1,5 @@
 import * as React from "react";
+import { GridClassName } from "../constants";
 import { useGridApiContext, useGridRootProps } from "../hooks";
 
 export function GridFooterPlaceholder() {
@@ -12,7 +13,7 @@ export function GridFooterPlaceholder() {
   }
 
   return (
-    <div ref={footerRef}>
+    <div ref={footerRef} className={GridClassName.FooterContainer}>
       <rootProps.components.Footer />
     </div>
   );

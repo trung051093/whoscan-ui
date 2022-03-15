@@ -1,5 +1,4 @@
 import React from "react";
-import "react-virtualized/styles.css";
 import Table, { TableProps } from "@mui/material/Table";
 import Stack from "@mui/material/Stack";
 import TableContainer, {

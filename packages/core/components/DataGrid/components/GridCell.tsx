@@ -1,4 +1,3 @@
-import React from "react";
 import { useGridComponentProps } from "../hooks";
 import { BaseDivComponentProps } from "../models";
 import classNames from "classnames";

@@ -1,5 +1,6 @@
 import { DataGrid, DataGridProps } from ".";
 import { Story } from "@storybook/react";
+import { generateData } from "./utils/generateData";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -18,28 +19,13 @@ const Template: Story<DataGridProps> = (args: DataGridProps) => (
   <DataGrid {...args} />
 );
 
+const { rows, columns } = generateData(100, 10)
+
 export const Normal = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Normal.args = {
-  rows: [],
-  columns: [
-    {
-      id: "col1",
-      label: "col1",
-    },
-    {
-      id: "col2",
-      label: "col2",
-    },
-    {
-      id: "col3",
-      label: "col3",
-    },
-    {
-      id: "col4",
-      label: "col4",
-    },
-  ],
+  rows: rows,
+  columns: columns,
   componentsProps: {
     Header: { style: { color: "Red" } },
   },

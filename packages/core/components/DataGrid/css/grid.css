@@ -1,4 +1,4 @@
-.grid-header {
+.grid-header, .grid-row, .grid-footer {
     display: flex;
 }
 
