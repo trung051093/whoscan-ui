@@ -11,7 +11,7 @@ export function generateData(row: number = 1, col: number = 1): any {
     for (let j = 0; j < col; j++) {
         const key = 'col' + j
         columns.push({
-            id: key,
+            field: key,
             label: key
         })
         columnKeys.push(key)

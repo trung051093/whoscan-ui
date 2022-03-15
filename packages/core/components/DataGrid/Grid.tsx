@@ -7,10 +7,12 @@ import "./css/grid.css";
 export function DataGrid({ ...props }: DataGridProps) {
   const apiRef = useGridApiInitialization(undefined);
   const propsProcessed = usePreProcessingProps(props);
+  apiRef.current.state = propsProcessed.state;
+  console.log("apiRef: ", apiRef)
 
   return (
     <GridContextProvider apiRef={apiRef} props={propsProcessed}>
-      <GridRoot></GridRoot>
+      <GridRoot ref={apiRef.current.footerRef} />
     </GridContextProvider>
   );
 }

@@ -1,12 +1,29 @@
-export type GridColumnId = string | number
+import { GridRow } from "./row";
+
+export type GridSortDirection = 'asc' | 'desc';
 
 export type GridColumnAlign = "left" | "center" | "right" | "justify" | "inherit"
 
+export type GridColType = 'string'
+    | 'number'
+    | 'date'
+    | 'dateTime'
+    | 'boolean'
+    | 'singleSelect'
+    | 'actions'
+    | string
+
 export interface GridColumn {
-    id: GridColumnId
+    field: string
     label: string
+    description?: string
     width?: number
+    minWidth?: number
     align?: GridColumnAlign
+    resizable?: boolean
+    sortingOrder?: GridSortDirection
+    pinnable?: boolean
     order?: number
-    render?: (item: Record<string, any>) => JSX.Element
+    type?: GridColType
+    render?: (item: GridRow) => JSX.Element
 }

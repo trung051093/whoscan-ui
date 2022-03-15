@@ -1,14 +1,10 @@
+import { GridState } from "./state";
+
 export interface GridApiCore {
-    state: any
-    instanceId: number
-    /**
-     * The React ref of the grid header element.
-     *  @ignore - do not document.
-     */
+    state: GridState;
+    instanceId: number;
     headerRef?: React.RefObject<HTMLDivElement>;
-    /**
-     * The React ref of the grid footer element.
-     * @ignore - do not document.
-     */
     footerRef?: React.RefObject<HTMLDivElement>;
+    rootRef?: React.RefObject<HTMLDivElement>;
+    containerRef?: React.RefObject<HTMLDivElement>;
 }

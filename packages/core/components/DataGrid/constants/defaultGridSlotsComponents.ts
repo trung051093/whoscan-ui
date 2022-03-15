@@ -4,7 +4,7 @@ import { GridFooterComponent } from "../components/GridFooter";
 import { GridRowComponent } from "../components/GridRow";
 import { GridCellComponent } from "../components/GridCell";
 
-export const DATA_GRID_DEFAULT_SLOTS_COMPONENTS: GridSlotsComponent = {
+export const DEFAULT_SLOTS_COMPONENTS: GridSlotsComponent = {
     Row: GridRowComponent,
     Header: GridHeaderComponent,
     Footer: GridFooterComponent,

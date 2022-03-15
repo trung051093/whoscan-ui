@@ -1,7 +1,63 @@
-.grid-header, .grid-row, .grid-footer {
+:root {
+    --header-height: 56px;
+    --footer-height: 56px;
+    --row-height: 40px;
+    --container-width: 960px;
+    --container-height: 500px;
+    --cell-width: 100px;
+
+    --spacerXS: 8px;
+    --spacerS: 10px;
+    --spacer: 16px;
+    --spacerM: 20px;
+    --spacerL: 24px;
+}
+
+.grid-container {
+    position: relative;
+    overflow: auto;
+    width: var(--container-width);
+    height: var(--container-height);
+}
+
+.grid-root {
+    position: relative;
+}
+
+.grid-body {
+    position: absolute;
+}
+
+.grid-footer {
+    min-height: var(--footer-height);
+}
+
+.grid-header {
+    position: sticky;
+    top: 0;
+    min-height: var(--header-height);
+}
+
+.grid-header>.grid-cell {
+    min-height: inherit
+}
+
+.grid-footer {
+    min-height: var(--footer-height);
+}
+
+.grid-footer>.grid-cell {
+    min-height: inherit
+}
+
+.grid-row {
     display: flex;
+    justify-self: center;
+    align-items: center;
+    min-height: var(--row-height);
 }
 
 .grid-cell {
-    min-width: 100px
+    min-width: var(--cell-width);
+    padding: var(--spacerXS) var(--spacerS);
 }

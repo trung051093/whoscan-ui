@@ -4,19 +4,28 @@ import { GridClassName } from "../constants";
 import { GridBodyComponent as GridBody } from "./GridBody";
 import { GridFooterPlaceholder } from "./GridFooterPlaceholder";
 import { GridHeaderPlaceholder } from "./GridHeaderPlaceholder";
+import { useGridApiContext } from "../hooks";
 
 interface GridRootComponentProps extends BaseDivComponentProps {}
 
-export const GridRootComponent = React.forwardRef<
-  HTMLDivElement,
-  GridRootComponentProps
->(({ children }, ref) => {
+export const GridRootComponent = ({
+  children,
+  ...otherProps
+}: GridRootComponentProps) => {
+  const apiRef = useGridApiContext();
+  const rootRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  apiRef.current.rootRef = rootRef;
+  apiRef.current.containerRef = containerRef;
+
   return (
-    <div className={GridClassName.Root} ref={ref}>
-      <GridHeaderPlaceholder />
-      <GridBody />
-      {children}
+    <div {...otherProps} className={GridClassName.Root} ref={rootRef}>
+      <div className={GridClassName.Container} ref={containerRef}>
+        <GridHeaderPlaceholder />
+        <GridBody />
+        {children}
+      </div>
       <GridFooterPlaceholder />
     </div>
   );
-});
+};

@@ -1,4 +1,4 @@
-import { GridColumn, GridRow, GridLocaleText, GridSlotsComponent, GridSlotsComponentProps } from ".";
+import { GridColumn, GridRow, GridLocaleText, GridSlotsComponent, GridSlotsComponentProps, GridState } from ".";
 
 export interface DataGridProps {
     columns: GridColumn[]
@@ -11,4 +11,5 @@ export interface DataGridProps {
 
 export interface GridProcessedProps extends Partial<DataGridProps> {
     components: GridSlotsComponent;
+    state: GridState
 }
