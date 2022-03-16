@@ -2,16 +2,12 @@ import React from "react";
 import { BaseDivComponentProps } from "../models";
 import { useGridRootProps } from "../hooks/useGridRootProps";
 import { GridClassName } from "../constants";
-import { FixedSizeList as List } from "react-window";
 import { useGridApiContext } from "../hooks";
 import { gridAllRowsSelector } from "../hooks/row/gridRowSelector";
 
 interface GridRootComponentProps extends BaseDivComponentProps {}
 
-export const GridBodyComponent = React.forwardRef<
-  HTMLDivElement,
-  GridRootComponentProps
->(({}: GridRootComponentProps, ref) => {
+export const GridBodyComponent = ({}: GridRootComponentProps) => {
   const rootProps = useGridRootProps();
   const apiRef = useGridApiContext();
   const rows = gridAllRowsSelector(apiRef);
@@ -28,4 +24,4 @@ export const GridBodyComponent = React.forwardRef<
       {rowsRender}
     </div>
   );
-});
+};
