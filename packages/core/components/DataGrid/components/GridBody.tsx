@@ -1,4 +1,3 @@
-import React from "react";
 import { BaseDivComponentProps } from "../models";
 import { useGridRootProps } from "../hooks/useGridRootProps";
 import { GridClassName } from "../constants";
@@ -20,7 +19,7 @@ export const GridBodyComponent = ({}: GridRootComponentProps) => {
   }
 
   return (
-    <div className={GridClassName.Body} ref={ref}>
+    <div className={GridClassName.Body}>
       {rowsRender}
     </div>
   );
