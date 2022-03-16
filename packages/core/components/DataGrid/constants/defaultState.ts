@@ -5,13 +5,15 @@ export const DEFAULT_STATE: GridState = {
         all: [],
         rowIds: [],
         idRowsLookup: new Map<GridRowId, GridRowModel>(),
+        indexRowsLookup: new Map<number, GridRowModel>(),
         rowSelected: [],
         rowHeight: 52
     },
     columns: {
         all: [],
         fieldColumnsLookup: new Map<string, GridColumn>(),
-        fields: []
+        fields: [],
+        totalColumnWidth: 0
     },
     pagination: {
         page: 1,

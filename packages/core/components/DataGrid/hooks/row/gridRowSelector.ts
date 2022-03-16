@@ -8,6 +8,11 @@ export const gridRowsLookupSelector = createSelector(
     (rows) => rows.idRowsLookup,
 );
 
+export const gridIndexRowsLookupSelector = createSelector(
+    gridRowsStateSelector,
+    (rows) => rows.indexRowsLookup,
+);
+
 export const gridRowHeightSelector = createSelector(
     gridRowsStateSelector,
     (rows) => rows.rowHeight,

@@ -11,6 +11,7 @@ export interface GridRowState {
     all: GridRow[];
     rowIds: GridRowId[];
     idRowsLookup: Map<GridRowId, GridRowModel>;
+    indexRowsLookup: Map<number, GridRowModel>;
     rowSelected: Array<GridRowId>;
     rowHeight: number;
 }
@@ -19,6 +20,7 @@ export interface GridColumnState {
     all: GridColumn[];
     fieldColumnsLookup: Map<string, GridColumn>;
     fields: string[];
+    totalColumnWidth: number
 }
 
 export interface GridPaginationState {

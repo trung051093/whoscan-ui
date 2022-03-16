@@ -19,7 +19,7 @@ const Template: Story<DataGridProps> = (args: DataGridProps) => (
   <DataGrid {...args} />
 );
 
-const { rows, columns } = generateData(100, 10)
+const { rows, columns } = generateData(1000, 10)
 
 export const Normal = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

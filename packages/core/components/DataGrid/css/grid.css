@@ -15,9 +15,6 @@
 
 .grid-container {
     position: relative;
-    overflow: auto;
-    width: var(--container-width);
-    height: var(--container-height);
 }
 
 .grid-root {

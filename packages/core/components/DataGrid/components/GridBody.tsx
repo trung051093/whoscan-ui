@@ -2,6 +2,7 @@ import React from "react";
 import { BaseDivComponentProps } from "../models";
 import { useGridRootProps } from "../hooks/useGridRootProps";
 import { GridClassName } from "../constants";
+import { FixedSizeList as List } from "react-window";
 import { useGridApiContext } from "../hooks";
 import { gridAllRowsSelector } from "../hooks/row/gridRowSelector";
 

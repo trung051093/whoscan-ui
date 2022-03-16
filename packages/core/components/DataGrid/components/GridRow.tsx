@@ -32,8 +32,8 @@ export const GridRowComponent = ({
   return (
     <div
       {...componentProps}
-      {...otherProps}
       {...rowProps}
+      {...otherProps}
       className={classNames(componentProps.className, otherProps.className)}
     >
       {cells}
