@@ -1,10 +1,12 @@
 import React from "react"
-import { GridApi } from "../models"
+import { DataGridProps, GridApi } from "../models"
 import { EventManager } from "../utils/eventManager";
+import { usePreProcessingState } from "./usePreProcessingState";
 
 let globalId = 0;
 export const useGridApiInitialization = (
     inputApiRef: React.MutableRefObject<GridApi> | undefined,
+    props: DataGridProps
 ) => {
     const apiRef = React.useRef() as React.MutableRefObject<GridApi>
 
@@ -18,6 +20,7 @@ export const useGridApiInitialization = (
         globalId += 1;
     }
 
+    usePreProcessingState(apiRef, props)
     React.useImperativeHandle(inputApiRef, () => apiRef.current, [apiRef]);
 
     return apiRef

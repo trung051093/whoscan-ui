@@ -5,9 +5,8 @@ import { DataGridProps } from "./models";
 import "./css/grid.css";
 
 export function DataGrid({ ...props }: DataGridProps) {
-  const apiRef = useGridApiInitialization(undefined);
+  const apiRef = useGridApiInitialization(undefined, props);
   const propsProcessed = usePreProcessingProps(props);
-  apiRef.current.state = propsProcessed.state;
   console.log("apiRef: ", apiRef)
 
   return (

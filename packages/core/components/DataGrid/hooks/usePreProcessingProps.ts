@@ -1,8 +1,6 @@
 import React from "react";
-import { DEFAULT_SLOTS_COMPONENTS, DEFAULT_LOCALE_TEXT, DEFAULT_STATE } from "../constants";
+import { DEFAULT_SLOTS_COMPONENTS, DEFAULT_LOCALE_TEXT } from "../constants";
 import { DataGridProps, GridProcessedProps } from "../models";
-import { convertColumnssPropsToState } from "./column/utils";
-import { convertRowsPropsToState } from "./row/utils";
 
 export const usePreProcessingProps = (props: DataGridProps): GridProcessedProps => {
 
@@ -16,25 +14,9 @@ export const usePreProcessingProps = (props: DataGridProps): GridProcessedProps 
         [props.components],
     );
 
-    const state = React.useMemo(
-        () => ({
-            ...DEFAULT_STATE,
-            rows: {
-                ...DEFAULT_STATE.rows,
-                ...convertRowsPropsToState(props.rows)
-            },
-            columns: {
-                ...DEFAULT_STATE.columns,
-                ...convertColumnssPropsToState(props.columns)
-            }
-        }),
-        [props],
-    );
-
     return React.useMemo<GridProcessedProps>(() => ({
         ...props,
         localeText,
         components,
-        state
     }), [components, localeText])
 }

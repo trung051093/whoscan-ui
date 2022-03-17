@@ -6,7 +6,7 @@ import { GridFooterPlaceholder } from "./GridFooterPlaceholder";
 import { GridHeaderPlaceholder } from "./GridHeaderPlaceholder";
 import { useGridApiContext } from "../hooks";
 
-interface GridRootComponentProps extends BaseDivComponentProps {}
+interface GridRootComponentProps extends BaseDivComponentProps { }
 
 export const GridRootComponent = ({
   children,
@@ -17,6 +17,13 @@ export const GridRootComponent = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   apiRef.current.rootRef = rootRef;
   apiRef.current.containerRef = containerRef;
+
+  React.useEffect(() => {
+    if (!containerRef.current) return
+
+    
+
+  }, [containerRef])
 
   return (
     <div {...otherProps} className={GridClassName.Root} ref={rootRef}>

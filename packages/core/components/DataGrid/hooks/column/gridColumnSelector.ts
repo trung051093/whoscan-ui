@@ -8,12 +8,17 @@ export const gridColumnsLookupSelector = createSelector(
     (columns) => columns.fieldColumnsLookup,
 );
 
-export const gridTotalColumnWidthSelector = createSelector(
-    gridColumnsStateSelector,
-    (columns) => columns.totalColumnWidth,
-);
-
 export const gridAllColumnsSelector = createSelector(
     gridColumnsStateSelector,
     (columns) => columns.all,
+);
+
+export const gridFieldColumnsLookupSelector = createSelector(
+    gridColumnsStateSelector,
+    (columns) => columns.fieldColumnsLookup,
+);
+
+export const gridIndexColumnsLookupSelector = createSelector(
+    gridColumnsStateSelector,
+    (columns) => columns.indexColumnsLookup,
 );

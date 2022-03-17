@@ -2,6 +2,7 @@ import { GridColumn } from "./column";
 import { GridRow, GridRowId, GridRowModel } from "./row";
 
 export interface GridState {
+    container: GridContainer;
     rows: GridRowState;
     columns: GridColumnState;
     pagination: GridPaginationState;
@@ -19,11 +20,16 @@ export interface GridRowState {
 export interface GridColumnState {
     all: GridColumn[];
     fieldColumnsLookup: Map<string, GridColumn>;
+    indexColumnsLookup: Map<number, GridColumn>
     fields: string[];
-    totalColumnWidth: number
 }
 
 export interface GridPaginationState {
     page: number;
     pageSize: number;
+}
+
+export interface GridContainer {
+    width: number;
+    height: number;
 }
